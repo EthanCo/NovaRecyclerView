@@ -11,3 +11,25 @@
 1. 可以动态为FooterView赋予不同状态（加载中、加载失败、滑到最底等）；    
 
 **通过封装，使其代码更优雅，编写代码更小，接口更小，耦合更低，更适合于公司项目开发**  
+
+## 添加依赖 ##
+
+### Step 1.
+
+Add it in your root build.gradle at the end of repositories:
+
+	allprojects {
+		repositories {
+			...
+			maven { url "https://jitpack.io" }
+		}
+	}
+###Step 2.
+
+	dependencies {
+	        compile 'com.github.EthanCo:NovaRecyclerView:v1.0.0'
+	}  
+
+## 使用 ##
+
+请看Sample
