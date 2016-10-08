@@ -4,7 +4,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.widget.Toast;
 
 import com.ethanco.nova.NovaSupervisor;
-import com.ethanco.sample.view.ISampleView;
+import com.ethanco.sample.view.IListView;
 import com.lib.frame.view.BaseActivity;
 import com.lib.frame.viewmodel.BaseViewModel;
 
@@ -15,7 +15,7 @@ import java.util.Collection;
  * Created by EthanCo on 2016/10/8.
  */
 
-public abstract class BaseListActivity<B, T extends BaseViewModel<ISampleView<B>>> extends BaseActivity<ISampleView<B>, T> implements ISampleView<B> {
+public abstract class BaseListActivity<B, T extends BaseViewModel<IListView<B>>> extends BaseActivity<IListView<B>, T> implements IListView<B> {
     protected NovaSupervisor supervisor;
 
     @Override

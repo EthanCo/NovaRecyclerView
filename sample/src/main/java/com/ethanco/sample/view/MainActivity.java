@@ -20,7 +20,7 @@ import com.lib.frame.view.BaseActivity;
 
 import java.util.Collection;
 
-public class MainActivity extends BaseActivity<ISampleView<ItemModel>, SampleViewModel> implements ISampleView, SwipeRefreshLayout.OnRefreshListener {
+public class MainActivity extends BaseActivity<IListView<ItemModel>, SampleViewModel> implements IListView, SwipeRefreshLayout.OnRefreshListener {
     private ActivityMainBinding binding;
 
     private AdapterWrap<ItemModel> adapterWrap;

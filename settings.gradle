@@ -1,1 +1,1 @@
-include ':sample', ':novarecyclerview', ':lib.frame'
+include ':sample', ':novarecyclerview', ':lib.frame', ':LRecyclerview_library'

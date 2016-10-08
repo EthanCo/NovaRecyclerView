@@ -3,7 +3,7 @@ package com.ethanco.sample.viewmodel;
 import com.ethanco.sample.bean.ItemModel;
 import com.ethanco.sample.model.ISampleModel;
 import com.ethanco.sample.model.SampleModel;
-import com.ethanco.sample.view.ISampleView;
+import com.ethanco.sample.view.IListView;
 import com.lib.frame.viewmodel.BaseViewModel;
 
 import rx.android.schedulers.AndroidSchedulers;
@@ -13,7 +13,7 @@ import rx.schedulers.Schedulers;
  * Created by EthanCo on 2016/9/30.
  */
 
-public class SampleViewModel extends BaseViewModel<ISampleView<ItemModel>> {
+public class SampleViewModel extends BaseViewModel<IListView<ItemModel>> {
     private ISampleModel model;
 
     public SampleViewModel() {
