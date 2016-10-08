@@ -15,7 +15,7 @@ import java.util.Collection;
  * Created by EthanCo on 2016/10/8.
  */
 
-public abstract class ListActivity<B, T extends BaseViewModel<ISampleView<B>>> extends BaseActivity<ISampleView<B>, T> implements ISampleView<B> {
+public abstract class BaseListActivity<B, T extends BaseViewModel<ISampleView<B>>> extends BaseActivity<ISampleView<B>, T> implements ISampleView<B> {
     protected NovaSupervisor supervisor;
 
     @Override
@@ -41,7 +41,7 @@ public abstract class ListActivity<B, T extends BaseViewModel<ISampleView<B>>> e
         setRefreshing(false);
 
         //com.ethanco.sample.utils.T.show(binding.fab, "刷新错误:" + error);
-        Toast.makeText(ListActivity.this, "刷新错误:" + error, Toast.LENGTH_SHORT).show();
+        Toast.makeText(BaseListActivity.this, "刷新错误:" + error, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -54,7 +54,7 @@ public abstract class ListActivity<B, T extends BaseViewModel<ISampleView<B>>> e
         supervisor.onLoadMoreFailed(error);
 
         //com.ethanco.sample.utils.T.show(binding.fab, "加载错误:" + error);
-        Toast.makeText(ListActivity.this, "加载错误:" + error, Toast.LENGTH_SHORT).show();
+        Toast.makeText(BaseListActivity.this, "加载错误:" + error, Toast.LENGTH_SHORT).show();
     }
 
     @Override

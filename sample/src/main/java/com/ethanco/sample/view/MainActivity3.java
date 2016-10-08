@@ -10,14 +10,14 @@ import com.ethanco.nova.NovaRecyclerView;
 import com.ethanco.nova.NovaSupervisor;
 import com.ethanco.sample.R;
 import com.ethanco.sample.adapter.DataAdapter;
-import com.ethanco.sample.base.ListActivity;
+import com.ethanco.sample.base.BaseListActivity;
 import com.ethanco.sample.bean.ItemModel;
 import com.ethanco.sample.databinding.ActivityMainBinding;
 import com.ethanco.sample.utils.T;
 import com.ethanco.sample.viewmodel.SampleViewModel;
 import com.ethanco.sample.widget.SampleHeader;
 
-public class MainActivity3 extends ListActivity<ItemModel, SampleViewModel> implements SwipeRefreshLayout.OnRefreshListener {
+public class MainActivity3 extends BaseListActivity<ItemModel, SampleViewModel> implements SwipeRefreshLayout.OnRefreshListener {
     private ActivityMainBinding binding;
 
     private AdapterWrap<ItemModel> adapterWrap;
