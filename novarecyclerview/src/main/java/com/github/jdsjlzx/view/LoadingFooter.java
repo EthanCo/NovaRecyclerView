@@ -7,7 +7,7 @@ import android.view.ViewStub;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.github.jdsjlzx.R;
+import com.ethanco.nova.R;
 import com.github.jdsjlzx.progressindicator.AVLoadingIndicatorView;
 
 public class LoadingFooter extends RelativeLayout {

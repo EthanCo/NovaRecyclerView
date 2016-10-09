@@ -37,6 +37,8 @@ Add it in your root build.gradle at the end of repositories:
 	        compile 'com.github.EthanCo:NovaRecyclerView:v1.0.1-sol'
 	}  
 
+用这种方式无需再另外引用LRecyclerView
+
 ## 使用 ##
 
 请看Sample

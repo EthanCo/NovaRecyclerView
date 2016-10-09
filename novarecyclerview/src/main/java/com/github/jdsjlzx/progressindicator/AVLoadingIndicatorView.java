@@ -11,7 +11,7 @@ import android.support.annotation.IntDef;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.github.jdsjlzx.R;
+import com.ethanco.nova.R;
 import com.github.jdsjlzx.progressindicator.indicator.BallBeatIndicator;
 import com.github.jdsjlzx.progressindicator.indicator.BallClipRotateIndicator;
 import com.github.jdsjlzx.progressindicator.indicator.BallClipRotateMultipleIndicator;

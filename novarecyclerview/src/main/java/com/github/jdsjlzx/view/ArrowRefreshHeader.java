@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.github.jdsjlzx.R;
+import com.ethanco.nova.R;
 import com.github.jdsjlzx.interfaces.BaseRefreshHeader;
 import com.github.jdsjlzx.progressindicator.AVLoadingIndicatorView;
 import com.github.jdsjlzx.recyclerview.ProgressStyle;

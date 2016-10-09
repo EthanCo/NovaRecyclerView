@@ -8,7 +8,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/LRecyclerview_library" />
             <option value="$PROJECT_DIR$/lib.frame" />
             <option value="$PROJECT_DIR$/novarecyclerview" />
             <option value="$PROJECT_DIR$/sample" />

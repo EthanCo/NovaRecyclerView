@@ -4,7 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
-import com.github.jdsjlzx.R;
+import com.ethanco.nova.R;
+
 
 /**
  * RecyclerView的FooterView，简单的展示一个TextView

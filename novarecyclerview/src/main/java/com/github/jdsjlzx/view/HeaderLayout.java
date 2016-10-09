@@ -1,4 +1,4 @@
-package com.github.recyclerview.view;
+package com.github.jdsjlzx.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
