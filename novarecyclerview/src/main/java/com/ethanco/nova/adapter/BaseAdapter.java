@@ -4,13 +4,13 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import com.ethanco.nova.bean.Entity;
+import com.ethanco.nova.bean.IEntity;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class BaseAdapter<T extends Entity> extends RecyclerView.Adapter {
+public class BaseAdapter<T extends IEntity> extends RecyclerView.Adapter {
     protected Context mContext;
 
     protected ArrayList<T> mDataList = new ArrayList<>();

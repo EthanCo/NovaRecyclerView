@@ -3,7 +3,7 @@ package com.ethanco.nova;
 import android.view.View;
 
 import com.ethanco.nova.adapter.BaseAdapter;
-import com.ethanco.nova.bean.Entity;
+import com.ethanco.nova.bean.IEntity;
 import com.github.jdsjlzx.recyclerview.LuRecyclerViewAdapter;
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import java.util.List;
  * Created by EthanCo on 2016/9/28.
  */
 
-public class AdapterWrap<T extends Entity> extends LuRecyclerViewAdapter {
+public class AdapterWrap<T extends IEntity> extends LuRecyclerViewAdapter {
     private BaseAdapter<T> adapter;
 
     public BaseAdapter<T> getAdapter() {

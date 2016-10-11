@@ -34,11 +34,17 @@ Add it in your root build.gradle at the end of repositories:
 或者  
 
 	dependencies {
-	        compile 'com.github.EthanCo:NovaRecyclerView:v1.0.1-sol'
+	        compile 'com.github.EthanCo:NovaRecyclerView:v1.0.2-sol'
 	}  
 
 用这种方式无需再另外引用LRecyclerView
 
 ## 使用 ##
 
-请看Sample
+请看Sample实例代码  
+
+	MainActivity为最原始版本  
+
+	MainActivity2 精简了代码  
+
+	MainActivity3 继承自封装后的BaseListActivity

@@ -51,7 +51,7 @@ public class MainActivity extends BaseActivity<IListView<ItemModel>, SampleViewM
 
         supervisor.setLoadMoreListener((pageIndex, pageSize) -> mViewModel.loadMore(pageIndex, pageSize));
 
-        //如果同时使用上拉刷新，请添加这个Listener，防止与下拉加载的冲突
+        //如果同时使用下拉刷新，请添加这个Listener，防止与上拉加载的冲突
         supervisor.setRefreshStateListener(() -> binding.swipeRefreshLayout.isRefreshing());
 
         supervisor.setErrorClickListener(view -> supervisor.loadMore());

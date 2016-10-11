@@ -40,7 +40,6 @@ public abstract class BaseListActivity<B, T extends BaseViewModel<IListView<B>>>
         supervisor.onRefreshFailed(error);
         setRefreshing(false);
 
-        //com.ethanco.sample.utils.T.show(binding.fab, "刷新错误:" + error);
         Toast.makeText(BaseListActivity.this, "刷新错误:" + error, Toast.LENGTH_SHORT).show();
     }
 
@@ -53,7 +52,6 @@ public abstract class BaseListActivity<B, T extends BaseViewModel<IListView<B>>>
     public void onLoadMoreFailed(String error) {
         supervisor.onLoadMoreFailed(error);
 
-        //com.ethanco.sample.utils.T.show(binding.fab, "加载错误:" + error);
         Toast.makeText(BaseListActivity.this, "加载错误:" + error, Toast.LENGTH_SHORT).show();
     }
 
