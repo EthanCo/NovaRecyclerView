@@ -41,11 +41,16 @@ public class NovaSupervisor {
     private View.OnClickListener errorClickListener;
     private RefreshStateListener refreshStateListener;
 
-    public void openRefresh(SwipeRefreshLayout swipeRefreshLayout) {
-
+    public void openRefresh(final SwipeRefreshLayout swipeRefreshLayout) {
+        setRefreshStateListener(new RefreshStateListener() {
+            @Override
+            public boolean isRefreshing() {
+                return swipeRefreshLayout.isRefreshing();
+            }
+        });
     }
 
-    public void setRefreshStateListener(RefreshStateListener listener) {
+    private void setRefreshStateListener(RefreshStateListener listener) {
         this.refreshStateListener = listener;
     }
 

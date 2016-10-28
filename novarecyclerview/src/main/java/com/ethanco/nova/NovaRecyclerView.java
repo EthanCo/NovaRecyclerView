@@ -13,34 +13,17 @@ import com.ethanco.nova.base.MRecyclerView;
 
 public class NovaRecyclerView extends MRecyclerView {
 
-    private String sss;
-
     public NovaRecyclerView(Context context) {
         super(context);
-        init(context);
-        initEvent(context);
     }
 
     public NovaRecyclerView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context);
-        initEvent(context);
     }
 
     public NovaRecyclerView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(context);
-        initEvent(context);
     }
-
-    private void init(Context context) {
-
-    }
-
-    private void initEvent(Context context) {
-
-    }
-
 
     @Override
     public void setAdapter(Adapter adapter) {

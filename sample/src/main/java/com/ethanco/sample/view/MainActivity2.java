@@ -42,6 +42,8 @@ public class MainActivity2 extends BaseActivity<IListView<ItemModel>, SampleView
         supervisor = new NovaSupervisor(binding.list);
         supervisor.setHeaderView(new SampleHeader(this));
         supervisor.openLoadMore();
+        //如果同时使用下拉刷新，请调用这个，防止与上拉加载的冲突
+        supervisor.openRefresh(binding.swipeRefreshLayout);
     }
 
 
@@ -50,9 +52,6 @@ public class MainActivity2 extends BaseActivity<IListView<ItemModel>, SampleView
         binding.swipeRefreshLayout.setOnRefreshListener(this);
 
         supervisor.setLoadMoreListener((pageIndex, pageSize) -> mViewModel.loadMore(pageIndex, pageSize));
-
-        //如果同时使用上拉刷新，请添加这个Listener，防止与下拉加载的冲突
-        supervisor.setRefreshStateListener(() -> binding.swipeRefreshLayout.isRefreshing());
 
         supervisor.setErrorClickListener(view -> supervisor.loadMore());
 
