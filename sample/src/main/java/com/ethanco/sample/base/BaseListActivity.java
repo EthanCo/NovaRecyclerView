@@ -56,8 +56,8 @@ public abstract class BaseListActivity<B, T extends BaseViewModel<IListView<B>>>
     }
 
     @Override
-    public void setTotolCount(int totalCount) {
-        supervisor.setTotalCount(totalCount);
+    public void loadEnd() {
+        supervisor.setLoadEnd(true);
     }
 
     protected void setRefreshing(boolean refreshing) {

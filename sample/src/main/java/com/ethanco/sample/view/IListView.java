@@ -15,5 +15,5 @@ public interface IListView<M> {
 
     void onLoadMoreFailed(String error);
 
-    void setTotolCount(int totalCount);
+    void loadEnd();
 }

@@ -146,7 +146,7 @@ public class MainActivity2 extends BaseActivity<IListView<ItemModel>, SampleView
     }
 
     @Override
-    public void setTotolCount(int totalCount) {
-        supervisor.setTotalCount(totalCount);
+    public void loadEnd() {
+        supervisor.setLoadEnd(true);
     }
 }

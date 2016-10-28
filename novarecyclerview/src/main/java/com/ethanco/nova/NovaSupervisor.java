@@ -1,5 +1,7 @@
 package com.ethanco.nova;
 
+import android.os.Handler;
+import android.support.annotation.UiThread;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -25,22 +27,21 @@ import static android.content.ContentValues.TAG;
 
 public class NovaSupervisor {
 
-    //服务器端一共多少条数据
-    private int totalCount = Integer.MAX_VALUE;
-
     //每一页展示多少条数据
     private int listPageSize = 10;
-
-    public void setTotalCount(int totalCount) {
-        this.totalCount = totalCount;
-    }
-
-    private WeakReference<NovaRecyclerView> recyclerViewRef;
+    //是否 没有更多了
+    private boolean isLoadEnd = false;
 
     private LoadMoreListener loadmoreListener;
     private View.OnClickListener errorClickListener;
     private RefreshStateListener refreshStateListener;
+    private WeakReference<NovaRecyclerView> recyclerViewRef;
 
+    public NovaSupervisor(NovaRecyclerView recyclerView) {
+        this.recyclerViewRef = new WeakReference<>(recyclerView);
+    }
+
+    //打开下拉刷新
     public void openRefresh(final SwipeRefreshLayout swipeRefreshLayout) {
         setRefreshStateListener(new RefreshStateListener() {
             @Override
@@ -48,22 +49,6 @@ public class NovaSupervisor {
                 return swipeRefreshLayout.isRefreshing();
             }
         });
-    }
-
-    private void setRefreshStateListener(RefreshStateListener listener) {
-        this.refreshStateListener = listener;
-    }
-
-    public void setErrorClickListener(View.OnClickListener errorClickListener) {
-        this.errorClickListener = errorClickListener;
-    }
-
-    public void setLoadMoreListener(LoadMoreListener Listener) {
-        this.loadmoreListener = Listener;
-    }
-
-    public NovaSupervisor(NovaRecyclerView recyclerView) {
-        this.recyclerViewRef = new WeakReference<>(recyclerView);
     }
 
     //打开加载更多功能
@@ -84,6 +69,7 @@ public class NovaSupervisor {
         });
     }
 
+    //加载更多
     public void loadMore() {
         RecyclerView recyclerView = recyclerViewRef.get();
         if (recyclerView == null) return;
@@ -95,7 +81,7 @@ public class NovaSupervisor {
         }
 
         int currCount = recyclerView.getAdapter().getItemCount();
-        if (currCount < totalCount) {
+        if (!isLoadEnd) {
             if (isRefreshing()) return;
             if (loadmoreListener == null) return;
 
@@ -113,6 +99,8 @@ public class NovaSupervisor {
 
         return refreshStateListener.isRefreshing();
     }
+
+    //============================= Z-对外暴露 设置UI ==============================/
 
     private void setFooterViewState(int pageSize, LoadingFooter.State state, View.OnClickListener errorListener) {
         NovaRecyclerView recyclerView = recyclerViewRef.get();
@@ -204,5 +192,45 @@ public class NovaSupervisor {
 
     public void onLoadMoreFailed(String error) {
         setFooterViewState(LoadingFooter.State.NetWorkError);
+    }
+
+    //============================= Z-监听回调 ==============================/
+
+    private void setRefreshStateListener(RefreshStateListener listener) {
+        this.refreshStateListener = listener;
+    }
+
+    public void setErrorClickListener(View.OnClickListener errorClickListener) {
+        this.errorClickListener = errorClickListener;
+    }
+
+    public void setLoadMoreListener(LoadMoreListener Listener) {
+        this.loadmoreListener = Listener;
+    }
+
+    //============================= Z-Get Set ==============================/
+    public boolean isLoadEnd() {
+        return isLoadEnd;
+    }
+
+    //设置PageSize 一页加载几个
+    public void setPageSize(int pageSize) {
+        this.listPageSize = pageSize;
+    }
+
+    @UiThread
+    public void setLoadEnd(final boolean loadEnd) {
+        isLoadEnd = loadEnd;
+        if (loadEnd) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    setFooterViewState(listPageSize, LoadingFooter.State.TheEnd, null);
+                }
+            }, 500);
+        } else {
+            //加载更多
+            setFooterViewState(listPageSize, LoadingFooter.State.Loading, null);
+        }
     }
 }

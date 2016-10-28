@@ -36,9 +36,11 @@ public class SampleViewModel extends BaseViewModel<IListView<ItemModel>> {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(result -> {
-                            //设置总共的数据Count，一般为从服务器中获取到，此处为模拟
-                            getView().setTotolCount(64);
                             getView().onLoadMoreSuccess(result);
+                            //64为 总共的数据Count，一般为从服务器中获取到，此处为模拟
+                            if ((pageIndex+1) * pageSize >= 64) {
+                                getView().loadEnd();
+                            }
                         },
                         throwable -> getView().onLoadMoreFailed(throwable.getLocalizedMessage()),
                         () -> {
