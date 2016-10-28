@@ -34,7 +34,7 @@ Add it in your root build.gradle at the end of repositories:
 或者  
 
 	dependencies {
-	        compile 'com.github.EthanCo:NovaRecyclerView:v1.0.2-sol'
+	        compile 'com.github.EthanCo:NovaRecyclerView:v1.0.5-sol'
 	}  
 
 用这种方式无需再另外引用LRecyclerView
