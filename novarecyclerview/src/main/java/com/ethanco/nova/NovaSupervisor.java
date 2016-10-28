@@ -1,5 +1,6 @@
 package com.ethanco.nova;
 
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -39,6 +40,10 @@ public class NovaSupervisor {
     private LoadMoreListener loadmoreListener;
     private View.OnClickListener errorClickListener;
     private RefreshStateListener refreshStateListener;
+
+    public void openRefresh(SwipeRefreshLayout swipeRefreshLayout) {
+
+    }
 
     public void setRefreshStateListener(RefreshStateListener listener) {
         this.refreshStateListener = listener;
