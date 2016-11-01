@@ -31,6 +31,7 @@ public abstract class BaseListActivity<B, T extends BaseViewModel<IListView<B>>>
 
     @Override
     public void onRefreshSuccess(Collection<B> collection) {
+        supervisor.setLoadEnd(false);
         supervisor.onRefreshSuccess(collection);
         setRefreshing(false);
     }
