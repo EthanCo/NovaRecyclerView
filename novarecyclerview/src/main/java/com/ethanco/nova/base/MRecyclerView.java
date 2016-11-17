@@ -132,7 +132,6 @@ public abstract class MRecyclerView extends LuRecyclerView {
         if (!onScrollBottomListeners.contains(listener)) {
             onScrollBottomListeners.add(listener);
         }
-
     }
 
     @Override

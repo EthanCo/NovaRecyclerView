@@ -11,18 +11,14 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewParent;
 
-import com.github.jdsjlzx.view.LoadingFooter;
-
 /**
- *
  * @author Lzx
  * @created 2016/9/9 16:45
- *
  */
 public class LuRecyclerView extends RecyclerView {
     private LScrollListener mLScrollListener;
     private View mEmptyView;
-    private View mFootView;
+    //private View mFootView;
     private final AdapterDataObserver mDataObserver = new DataObserver();
 
     private LuRecyclerViewAdapter mWrapAdapter;
@@ -91,9 +87,9 @@ public class LuRecyclerView extends RecyclerView {
     }
 
     private void init() {
-        LoadingFooter footView = new LoadingFooter(getContext());
+        /*LoadingFooter footView = new LoadingFooter(getContext());
         mFootView = footView;
-        mFootView.setVisibility(GONE);
+        mFootView.setVisibility(GONE);*/
     }
 
     @Override
@@ -102,9 +98,12 @@ public class LuRecyclerView extends RecyclerView {
         super.setAdapter(mWrapAdapter);
         mDataObserver.onChanged();
 
-        mWrapAdapter.addFooterView(mFootView);
-
+        //mWrapAdapter.addFooterView(mFootView);
     }
+
+   /* public void setFooterVisible() {
+        mWrapAdapter.addFooterView(mFootView);
+    }*/
 
     private class DataObserver extends AdapterDataObserver {
         @Override
@@ -316,17 +315,17 @@ public class LuRecyclerView extends RecyclerView {
             }
             p = p.getParent();
         }
-        if(p instanceof CoordinatorLayout) {
-            CoordinatorLayout coordinatorLayout = (CoordinatorLayout)p;
+        if (p instanceof CoordinatorLayout) {
+            CoordinatorLayout coordinatorLayout = (CoordinatorLayout) p;
             final int childCount = coordinatorLayout.getChildCount();
             for (int i = childCount - 1; i >= 0; i--) {
                 final View child = coordinatorLayout.getChildAt(i);
-                if(child instanceof AppBarLayout) {
-                    appBarLayout = (AppBarLayout)child;
+                if (child instanceof AppBarLayout) {
+                    appBarLayout = (AppBarLayout) child;
                     break;
                 }
             }
-            if(appBarLayout != null) {
+            if (appBarLayout != null) {
                 appBarLayout.addOnOffsetChangedListener(new AppBarStateChangeListener() {
                     @Override
                     public void onStateChanged(AppBarLayout appBarLayout, State state) {

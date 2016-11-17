@@ -67,6 +67,7 @@ public class NovaSupervisor {
                 loadMore();
             }
         });
+        setFootViewIfIsNull(recyclerView);
     }
 
     //加载更多
@@ -101,6 +102,19 @@ public class NovaSupervisor {
     }
 
     //============================= Z-对外暴露 设置UI ==============================/
+
+    //如果没有FootView 设置一个FootVIew
+    private void setFootViewIfIsNull(NovaRecyclerView recyclerView) {
+        if (recyclerView.getAdapter() instanceof AdapterWrap) {
+            AdapterWrap adapterWrap = (AdapterWrap) recyclerView.getAdapter();
+            View footerView = adapterWrap.getFooterView();
+            if (footerView == null) {
+                footerView = new LoadingFooter(recyclerView.getContext());
+                //footerView.setVisibility(GONE);
+                setFooterView(footerView);
+            }
+        }
+    }
 
     private void setFooterViewState(int pageSize, LoadingFooter.State state, View.OnClickListener errorListener) {
         NovaRecyclerView recyclerView = recyclerViewRef.get();

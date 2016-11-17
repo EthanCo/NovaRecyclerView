@@ -2,7 +2,6 @@ package com.ethanco.sample.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -18,16 +17,14 @@ import com.ethanco.sample.bean.ItemModel;
 
 public class DataAdapter extends BaseAdapter<ItemModel> {
 
-    private LayoutInflater mLayoutInflater;
-
     public DataAdapter(Context context) {
-        mLayoutInflater = LayoutInflater.from(context);
-        mContext = context;
+        super(context);
     }
+
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(mLayoutInflater.inflate(R.layout.list_item_text, parent, false));
+        return new ViewHolder(mInflater.inflate(R.layout.list_item_text, parent, false));
     }
 
     @Override

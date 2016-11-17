@@ -21,6 +21,11 @@
 
         <activity android:name=".view.MainActivity" />
         <activity android:name=".view.MainActivity2" />
+        <activity android:name=".view.CommonActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
