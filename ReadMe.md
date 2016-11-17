@@ -27,7 +27,7 @@ Add it in your root build.gradle at the end of repositories:
 ###Step 2.
 
 	dependencies {
-	        compile 'com.github.EthanCo:NovaRecyclerView:v1.0.7'
+	        compile 'com.github.EthanCo:NovaRecyclerView:v1.1.1'
 	}  
 
 ## 使用 ##
