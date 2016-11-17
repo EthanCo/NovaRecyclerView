@@ -42,9 +42,8 @@ public class MainActivity extends BaseActivity<IListView<ItemModel>, SampleViewM
 
         supervisor = new NovaSupervisor(binding.list);
         supervisor.setHeaderView(new SampleHeader(this));
-        supervisor.openLoadMore();
-        //如果同时使用下拉刷新，请调用这个，防止与上拉加载的冲突
-        supervisor.openRefresh(binding.swipeRefreshLayout);
+        supervisor.openLoadMore(); //打开加载更多
+        supervisor.openRefresh(binding.swipeRefreshLayout); //打开上拉刷新
     }
 
     @Override
