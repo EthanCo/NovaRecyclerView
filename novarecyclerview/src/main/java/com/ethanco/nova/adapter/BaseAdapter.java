@@ -2,18 +2,20 @@ package com.ethanco.nova.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 public abstract class BaseAdapter<T> extends RecyclerView.Adapter {
+    protected LayoutInflater mInflater;
     protected Context mContext;
     protected List<T> mDataList = new ArrayList<>();
 
 
     /**
-     *please use {@link BaseAdapter#BaseAdapter(Context, List)}
+     * please use {@link BaseAdapter#BaseAdapter(Context, List)}
      */
     @Deprecated
     public BaseAdapter() {
@@ -21,6 +23,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter {
 
     public BaseAdapter(Context context, List<T> list) {
         this.mContext = context;
+        this.mInflater = LayoutInflater.from(context);
         this.mDataList = list;
     }
 
