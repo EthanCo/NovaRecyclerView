@@ -35,6 +35,7 @@ public abstract class MRecyclerView extends LuRecyclerView {
     }
 
     private void init(Context context) {
+        //默认情况下没有Footer
         LuRecyclerViewUtils.removeFooterView(this);
     }
 
