@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 
 import com.github.jdsjlzx.recyclerview.LuRecyclerView;
+import com.github.jdsjlzx.util.LuRecyclerViewUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +35,7 @@ public abstract class MRecyclerView extends LuRecyclerView {
     }
 
     private void init(Context context) {
-
+        LuRecyclerViewUtils.removeFooterView(this);
     }
 
     private void initEvent(Context context) {
