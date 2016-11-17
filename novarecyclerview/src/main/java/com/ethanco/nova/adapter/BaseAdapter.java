@@ -9,7 +9,20 @@ import java.util.List;
 
 public abstract class BaseAdapter<T> extends RecyclerView.Adapter {
     protected Context mContext;
-    protected ArrayList<T> mDataList = new ArrayList<>();
+    protected List<T> mDataList = new ArrayList<>();
+
+
+    /**
+     *please use {@link BaseAdapter#BaseAdapter(Context, List)}
+     */
+    @Deprecated
+    public BaseAdapter() {
+    }
+
+    public BaseAdapter(Context context, List<T> list) {
+        this.mContext = context;
+        this.mDataList = list;
+    }
 
     @Override
     public int getItemCount() {
