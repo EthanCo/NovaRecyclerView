@@ -38,6 +38,8 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter {
         notifyDataSetChanged();
     }
 
+    //TODO 如果实现添加数据到指定position，添加后需要notifyItemRangeChanged
+
     //添加数据
     public void add(T t) {
         if (mDataList.add(t)) {
@@ -67,16 +69,18 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter {
         if (this.mDataList.size() > 0) {
             mDataList.remove(position);
             notifyItemRemoved(position);
+            int maxPosition = mDataList.size(); //上面已经remove过了，所以不用-1
+            if (position < maxPosition) {
+                notifyItemRangeChanged(position, maxPosition - position);
+            }
         }
     }
 
     //移除数据
     public boolean remove(T t) {
         if (mDataList.contains(t)) {
-            int originSize = mDataList.size();
             int position = mDataList.indexOf(t);
-            mDataList.remove(t);
-            notifyItemRangeChanged(position, originSize);
+            remove(position);
             return true;
         }
         return false;
@@ -85,5 +89,10 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter {
     public void clear() {
         mDataList.clear();
         notifyDataSetChanged();
+    }
+
+    //根据Position获取数据
+    public T getData(int position) {
+        return mDataList.get(position);
     }
 }
