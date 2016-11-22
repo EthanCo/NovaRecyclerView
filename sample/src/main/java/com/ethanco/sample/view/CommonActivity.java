@@ -13,6 +13,7 @@ import com.ethanco.sample.R;
 import com.ethanco.sample.adapter.DataAdapter;
 import com.ethanco.sample.bean.ItemModel;
 import com.ethanco.sample.databinding.ActivityCommonBinding;
+import com.ethanco.sample.widget.SampleFooter;
 import com.ethanco.sample.widget.SampleHeader;
 
 import java.util.ArrayList;
@@ -42,6 +43,9 @@ public class CommonActivity extends AppCompatActivity {
             data.add(generationItemModel(i));
         }
         adapterWrap.getAdapter().setNewData(data);
+
+        adapterWrap.addHeaderView(new SampleHeader(this));
+        adapterWrap.addFooterView(new SampleFooter(this));
         //supervisor.openLoadMore();
         //supervisor.setFooterViewState(LoadingFooter.State.Loading);
     }

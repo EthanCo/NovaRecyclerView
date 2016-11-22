@@ -38,6 +38,14 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter {
         notifyDataSetChanged();
     }
 
+    //添加数据
+    public void add(T t) {
+        if (mDataList.add(t)) {
+            notifyItemInserted(mDataList.size());
+        }
+    }
+
+
     //添加数据 (适用于上拉加载)
     public void addAll(Collection<T> list) {
         int lastIndex = this.mDataList.size();
@@ -54,12 +62,24 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter {
 
     }
 
+    //移除数据
     public void remove(int position) {
         if (this.mDataList.size() > 0) {
             mDataList.remove(position);
             notifyItemRemoved(position);
         }
+    }
 
+    //移除数据
+    public boolean remove(T t) {
+        if (mDataList.contains(t)) {
+            int originSize = mDataList.size();
+            int position = mDataList.indexOf(t);
+            mDataList.remove(t);
+            notifyItemRangeChanged(position, originSize);
+            return true;
+        }
+        return false;
     }
 
     public void clear() {
