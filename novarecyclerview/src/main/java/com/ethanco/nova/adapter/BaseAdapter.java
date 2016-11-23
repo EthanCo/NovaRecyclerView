@@ -38,13 +38,20 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter {
         notifyDataSetChanged();
     }
 
-    //TODO 如果实现添加数据到指定position，添加后需要notifyItemRangeChanged
-
     //添加数据
     public void add(T t) {
+        int position = mDataList.size();
         if (mDataList.add(t)) {
-            notifyItemInserted(mDataList.size());
+            notifyItemInserted(position);
         }
+    }
+
+    //添加数据到指定位置
+    public void add(T t, int position) {
+        mDataList.add(position, t);
+        int itemCount = mDataList.size() - position;
+        notifyItemInserted(position);
+        notifyItemRangeChanged(position, itemCount);
     }
 
 
