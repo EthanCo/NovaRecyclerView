@@ -1,4 +1,6 @@
 ## NovaRecyclerview ##
+[![](https://jitpack.io/v/EthanCo/NovaRecyclerView.svg)](https://jitpack.io/#EthanCo/NovaRecyclerView)  
+
 对LRecyclerview第三方库的二次封装  
 
 **[LRecyclerView](https://github.com/jdsjlzx/LRecyclerView)**
@@ -27,7 +29,7 @@ Add it in your root build.gradle at the end of repositories:
 ###Step 2.
 
 	dependencies {
-	        compile 'com.github.EthanCo:NovaRecyclerView:v1.1.3'
+	        compile 'com.github.EthanCo:NovaRecyclerView:v1.1.4'
 	}  
 
 ## 使用 ##
@@ -38,4 +40,4 @@ Add it in your root build.gradle at the end of repositories:
 
 	MainActivity2 精简了代码  
 
-	MainActivity3 继承自封装后的BaseListActivity
+	MainActivity3 继承自封装后的BaseListActivity  

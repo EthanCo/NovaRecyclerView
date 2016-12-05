@@ -94,11 +94,19 @@ public class LuRecyclerView extends RecyclerView {
 
     @Override
     public void setAdapter(Adapter adapter) {
+        reRegisterDataObserver(adapter);
+
         mWrapAdapter = (LuRecyclerViewAdapter) adapter;
         super.setAdapter(mWrapAdapter);
         mDataObserver.onChanged();
-
         //mWrapAdapter.addFooterView(mFootView);
+    }
+
+    private void reRegisterDataObserver(Adapter adapter) {
+        if (mWrapAdapter != null) {
+            mWrapAdapter.unregisterAdapterDataObserver(mDataObserver);
+        }
+        adapter.registerAdapterDataObserver(mDataObserver);
     }
 
    /* public void setFooterVisible() {
@@ -134,9 +142,9 @@ public class LuRecyclerView extends RecyclerView {
                 }
             }
 
-            if (mWrapAdapter != null) {
+            /*if (mWrapAdapter != null) {
                 mWrapAdapter.notifyDataSetChanged();
-            }
+            }*/
         }
 
     }

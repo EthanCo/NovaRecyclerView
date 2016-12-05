@@ -68,7 +68,6 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter {
         this.mDataList.clear();
         this.mDataList.addAll(list);
         notifyDataSetChanged();
-
     }
 
     //移除数据
