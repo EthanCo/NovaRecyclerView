@@ -29,7 +29,7 @@ Add it in your root build.gradle at the end of repositories:
 ###Step 2.
 
 	dependencies {
-	        compile 'com.github.EthanCo:NovaRecyclerView:v1.1.4'
+	        compile 'com.github.EthanCo:NovaRecyclerView:v1.1.5'
 	}  
 
 ## 使用 ##
