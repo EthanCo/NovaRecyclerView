@@ -136,7 +136,7 @@ public class MainActivity extends BaseActivity<IListView<ItemModel>, SampleViewM
 
     @Override
     public void onLoadMoreSuccess(Collection collection) {
-        adapterWrap.getAdapter().addAll(collection);
+        adapterWrap.addAll(collection);
         supervisor.setFooterViewState(LoadingFooter.State.Normal);
     }
 

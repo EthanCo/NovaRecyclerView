@@ -3,9 +3,11 @@ package com.ethanco.nova;
 import android.view.View;
 
 import com.ethanco.nova.adapter.BaseAdapter;
+import com.ethanco.nova.adapter.IOperData;
 import com.github.jdsjlzx.recyclerview.LuRecyclerViewAdapter;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -13,7 +15,7 @@ import java.util.List;
  * Created by EthanCo on 2016/9/28.
  */
 
-public class AdapterWrap<T> extends LuRecyclerViewAdapter {
+public class AdapterWrap<T> extends LuRecyclerViewAdapter implements IOperData<T> {
     private BaseAdapter<T> adapter;
 
     public BaseAdapter<T> getAdapter() {
@@ -68,5 +70,56 @@ public class AdapterWrap<T> extends LuRecyclerViewAdapter {
     @Deprecated
     public void setOnItemClickListener(com.github.jdsjlzx.interfaces.OnItemClickListener mOnItemClickListener) {
         throw new IllegalStateException("please use addItemClickListener or addLongClickListener");
+    }
+
+    //============================= Z-IPerData ==============================/
+    @Override
+    public List<T> getDataList() {
+        return adapter.getDataList();
+    }
+
+    @Override
+    public void setDataList(Collection<T> list) {
+        adapter.setDataList(list);
+    }
+
+    @Override
+    public void add(T t) {
+        adapter.add(t);
+    }
+
+    @Override
+    public void add(T t, int position) {
+        adapter.add(t, position);
+    }
+
+    @Override
+    public void addAll(Collection<T> list) {
+        adapter.addAll(list);
+    }
+
+    @Override
+    public void setNewData(Collection<T> list) {
+        adapter.setNewData(list);
+    }
+
+    @Override
+    public void remove(int position) {
+        adapter.remove(position);
+    }
+
+    @Override
+    public boolean remove(T t) {
+        return adapter.remove(t);
+    }
+
+    @Override
+    public void clear() {
+        adapter.clear();
+    }
+
+    @Override
+    public T getData(int position) {
+        return adapter.getData(position);
     }
 }

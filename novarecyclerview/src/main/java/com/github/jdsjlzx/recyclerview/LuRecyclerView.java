@@ -98,7 +98,7 @@ public class LuRecyclerView extends RecyclerView {
 
         mWrapAdapter = (LuRecyclerViewAdapter) adapter;
         super.setAdapter(mWrapAdapter);
-        mDataObserver.onChanged();
+        //mDataObserver.onChanged();
         //mWrapAdapter.addFooterView(mFootView);
     }
 
