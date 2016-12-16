@@ -232,6 +232,10 @@ public class NovaSupervisor {
         this.listPageSize = pageSize;
     }
 
+    public int getListPageSize() {
+        return listPageSize;
+    }
+
     @UiThread
     public void setLoadEnd(final boolean loadEnd) {
         isLoadEnd = loadEnd;
