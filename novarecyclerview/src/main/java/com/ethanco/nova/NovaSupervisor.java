@@ -123,8 +123,9 @@ public class NovaSupervisor {
         RecyclerView.Adapter outerAdapter = recyclerView.getAdapter();
         if (outerAdapter != null && outerAdapter instanceof LuRecyclerViewAdapter) {
             LuRecyclerViewAdapter LuRecyclerViewAdapter = (LuRecyclerViewAdapter) outerAdapter;
-            if (LuRecyclerViewAdapter.getInnerAdapter().getItemCount() >= pageSize) {
-                if (LuRecyclerViewAdapter.getFooterViewsCount() > 0) {
+            if (LuRecyclerViewAdapter.getFooterViewsCount() > 0) {
+                //LuRecyclerViewAdapter.getInnerAdapter().getItemCount() >= pageSize
+                if (LuRecyclerViewAdapter.getInnerAdapter().getItemCount() > 0) {
                     LoadingFooter footerView = (LoadingFooter) LuRecyclerViewAdapter.getFooterView();
                     footerView.setState(state);
                     footerView.setVisibility(View.VISIBLE);
@@ -232,7 +233,7 @@ public class NovaSupervisor {
         this.listPageSize = pageSize;
     }
 
-    public int getListPageSize() {
+    public int getPageSize() {
         return listPageSize;
     }
 
